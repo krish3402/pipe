@@ -9,7 +9,7 @@ pipeline {
           }
         }
       }
-
+    }
         
     stage('Node Install ') {
       steps {
