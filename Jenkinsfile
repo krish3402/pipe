@@ -1,8 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('git') {
-      parallel {
+    
         stage('git') {
           steps {
             git(url: 'https://github.com/krish3402/pipe.git', branch: 'master')
@@ -21,9 +20,12 @@ pipeline {
         sh 'cd client && npm test -- --coverage --watchAll=false'
       }
     }
-
+  }
+}
 
 stage('backend') {
+      parallel {
+stage('maven install') {
           steps {
             tool(name: 'maven', type: 'maven')
             sh 'mvn clean install'
