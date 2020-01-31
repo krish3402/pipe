@@ -14,5 +14,11 @@ pipeline {
       }
     }
 
+    stage('Npm Coverage & Test Report') {
+      steps {
+        sh 'cd client && npm test -- --coverage --watchAll=false'
+      }
+    }
+
   }
 }
