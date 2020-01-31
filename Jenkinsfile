@@ -21,7 +21,7 @@ pipeline {
       }
     }
 
-stage('backend') {
+stage('git') {
       parallel {
 stage('maven install') {
           steps {
