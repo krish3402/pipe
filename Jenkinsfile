@@ -20,8 +20,6 @@ pipeline {
         sh 'cd client && npm test -- --coverage --watchAll=false'
       }
     }
-  }
-}
 
 stage('backend') {
       parallel {
