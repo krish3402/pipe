@@ -10,16 +10,7 @@ pipeline {
         }
       }
 
-        stage('backend') {
-          steps {
-            tool(name: 'maven', type: 'maven')
-            sh 'mvn clean install'
-          }
-        }
-
-      }
-    }
-
+        
     stage('Node Install ') {
       steps {
         tool(name: 'nodejs', type: 'nodejs')
@@ -33,5 +24,13 @@ pipeline {
       }
     }
 
-  }
-}
+
+stage('backend') {
+          steps {
+            tool(name: 'maven', type: 'maven')
+            sh 'mvn clean install'
+          }
+        }
+
+      }
+    }
