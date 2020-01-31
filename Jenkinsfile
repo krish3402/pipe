@@ -5,13 +5,14 @@ pipeline {
       parallel {
         stage('git') {
           steps {
-            git 'https://github.com/krish3402/pipe.git'
+            git(url: 'https://github.com/krish3402/pipe.git', branch: 'master')
           }
         }
 
         stage('backend') {
           steps {
             tool(name: 'maven', type: 'maven')
+            sh 'mvn clean install'
           }
         }
 
