@@ -20,5 +20,12 @@ pipeline {
       }
     }
 
+    stage('Coverage & Test Report Publish') {
+      steps {
+        cobertura(enableNewApi: true, sourceEncoding: 'ASCII', coberturaReportFile: 'client/coverage/cobertura-coverage.xml')
+        junit 'client/*.xml'
+      }
+    }
+
   }
 }
