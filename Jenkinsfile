@@ -10,6 +10,7 @@ pipeline {
     stage('Node Install ') {
       steps {
         tool(name: 'nodejs', type: 'nodejs')
+        sh 'cd client && npm install'
       }
     }
 
