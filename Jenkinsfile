@@ -8,6 +8,7 @@ pipeline {
             git(url: 'https://github.com/krish3402/pipe.git', branch: 'master')
           }
         }
+      }
 
         stage('backend') {
           steps {
