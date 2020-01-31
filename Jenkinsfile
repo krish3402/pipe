@@ -29,6 +29,11 @@ stage('maven install') {
             sh 'mvn clean install'
           }
         }
+        stage('maven coverage and test') {
+          steps {            
+            sh 'mvn clean install cobertura:cobertura'
+          }
+        }
 
       }
     }
