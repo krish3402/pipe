@@ -80,5 +80,12 @@ pipeline {
       }
     }
 
+    stage('Coverage & test Report') {
+      steps {
+        cobertura(coberturaReportFile: 'target/site/cobertura/coverage.xml', enableNewApi: true, sourceEncoding: 'ASCII')
+        junit '**/surefire-reports/*.xml'
+      }
+    }
+
   }
 }
