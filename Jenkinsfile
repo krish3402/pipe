@@ -51,5 +51,34 @@ pipeline {
       }
     }
 
+    stage('Maven packages install') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+
+    stage('Maven Test & Coverage') {
+      parallel {
+        stage('Maven Test & Coverage') {
+          steps {
+            echo 'Test & Coverage'
+          }
+        }
+
+        stage('Test') {
+          steps {
+            sh 'mvn clean test'
+          }
+        }
+
+        stage('Coverage') {
+          steps {
+            sh 'mvn clean cobertura:cobertura'
+          }
+        }
+
+      }
+    }
+
   }
 }
