@@ -10,12 +10,7 @@ pipeline {
     stage('Node Install ') {
       steps {
         tool(name: 'nodejs', type: 'nodejs')
-        sh 'npm config ls'
-      }
-    }
-     stage('Node Install packages') {
-      steps {       
-        sh 'cd client && npm install'
+        sh 'npm config ls && cd client && npm install'
       }
     }
 
