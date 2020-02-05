@@ -44,5 +44,12 @@ pipeline {
       }
     }
 
+    stage('Maven Install') {
+      steps {
+        tool(name: 'maven', type: 'maven')
+        sh 'mvn --version'
+      }
+    }
+
   }
 }
